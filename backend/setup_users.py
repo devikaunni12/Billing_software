@@ -1,7 +1,7 @@
 import os
 import django
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'billing_software.settings')  # നിങ്ങളുടെ settings ഉള്ള പാത്ത് (അല്ലെങ്കിൽ പ്രോജക്റ്റ് പേര്.settings)
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'config.settings')
 django.setup()
 
 from django.contrib.auth import get_user_model

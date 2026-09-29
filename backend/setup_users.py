@@ -1,0 +1,18 @@
+import os
+import django
+
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'billing_software.settings')  # നിങ്ങളുടെ settings ഉള്ള പാത്ത് (അല്ലെങ്കിൽ പ്രോജക്റ്റ് പേര്.settings)
+django.setup()
+
+from django.contrib.auth import get_user_model
+User = get_user_model()
+
+# Admin Account
+if not User.objects.filter(username='admin').exists():
+    User.objects.create_superuser('admin', 'admin@example.com', 'Admin123!')
+    print("Admin user created successfully")
+
+# Cashier Account
+if not User.objects.filter(username='cashier').exists():
+    User.objects.create_user('cashier', 'cashier@example.com', 'Staff123!')
+    print("Cashier user created successfully")
